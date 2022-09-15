@@ -36,7 +36,7 @@
 ***/
 
 void ESPConfig::init(int indicatorPin) {
-	DEBUG_PRINTLN("ESPConfig::init");
+	DEBUG_PRINTLN("ESPConfig::init begin");
 	//resetEEPROM();
 
 	EEPROM.begin(EEPROM_MAX_ADDR);
@@ -120,7 +120,7 @@ short ESPConfig::discover(byte* replyBuffer) {
 }
 */
 short ESPConfig::set(byte* replyBuffer, byte* _payload) {
-	DEBUG_PRINTLN("ESPConfig::set");
+	DEBUG_PRINTLN("ESPConfig::set begin");
 
 	uint16_t errordesc_length = 100;
 	byte errordesc[errordesc_length];
@@ -170,7 +170,7 @@ int ESPConfig::sizeOfUDPPayload() {
 */
 
 void ESPConfig::load() {
-	DEBUG_PRINTLN("ESPConfig::load");
+	DEBUG_PRINTLN("ESPConfig::load begin");
 	// 30JUN19, commented to alleviate WiFi reset
 	//delay(10);
 	EEPROM.begin(EEPROM_MAX_ADDR);
@@ -242,7 +242,8 @@ void ESPConfig::toString() {
 }
 
 void ESPConfig::fromByteArray(byte command, byte* aray, byte* errordesc, uint16_t* errordesc_length) {
-	DEBUG_PRINT("ESPConfig::fromByteArray command ");DEBUG_PRINTLN(command);
+	DEBUG_PRINTLN("ESPConfig::fromByteArray begin");
+	DEBUG_PRINT("command ");DEBUG_PRINTLN(command);
 
 	int index = 0;
 	uint8_t retvalue = 255;//default value 255 for all commands except DEVICE_COMMAND_FIRMWARE_UPDATE
@@ -439,7 +440,7 @@ void ESPConfig::fromByteArray(byte* aray, byte* errordesc, uint16_t* errordesc_l
 }*/
 
 int ESPConfig::toByteArray(byte aray[]) {
-	DEBUG_PRINTLN("ESPConfig::toByteArray");
+	DEBUG_PRINTLN("ESPConfig::toByteArray begin");
 
 	//byte aray[sizeOfUDPPayload()];
 
@@ -489,7 +490,7 @@ int ESPConfig::toByteArray(byte aray[]) {
 	memory location
 */
 void ESPConfig::save(void) {
-	DEBUG_PRINTLN("ESPConfig::save");
+	DEBUG_PRINTLN("ESPConfig::save begin");
 
 	// 30JUN19, commented to alleviate WiFi reset
 	//delay(10);

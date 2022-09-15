@@ -60,7 +60,7 @@ int ESP8266Controller::sizeOfUDPPayload() {
 // output this controller capabilities to byte array
 //byte* ESP8266Controller::toByteArray() {
 /*
-	DEBUG_PRINTLN("LEDController::toByteArray");
+	DEBUG_PRINTLN("ESP8266Controller::toByteArray");
 
 	// [pin][no_of_capabilities][capability name][min value][max value][value]
 	byte aray[sizeOfUDPPayload()];
@@ -99,7 +99,7 @@ int ESP8266Controller::sizeOfUDPPayload() {
 	}
 
 	printArray(aray, sizeof(aray), false);
-	DEBUG_PRINTLN("LEDController::toByteArray end");
+	DEBUG_PRINTLN("ESP8266Controller::toByteArray end");
 
 	return aray;
 }*/
@@ -107,7 +107,7 @@ int ESP8266Controller::sizeOfUDPPayload() {
 // output this controller capabilities to byte array
 int ESP8266Controller::toByteArray(byte aray[]) {
 
-	DEBUG_PRINTLN("LEDController::toByteArray");
+	DEBUG_PRINTLN("ESP8266Controller::toByteArray");
 
 	// [pin][no_of_capabilities][capability name][min value][max value][value]
 	//byte aray[sizeOfUDPPayload()];
@@ -147,7 +147,7 @@ int ESP8266Controller::toByteArray(byte aray[]) {
 
 	//printArray(aray, sizeof(aray), false);
 	DEBUG_PRINT_ARRAY(aray, index, false);
-	DEBUG_PRINTLN("LEDController::toByteArray end");
+	DEBUG_PRINTLN("ESP8266Controller::toByteArray end");
 
 	return (index);
 }
@@ -157,7 +157,7 @@ int ESP8266Controller::toByteArray(byte aray[]) {
 boolean ESP8266Controller::fromByteArray(byte aray[])  {
 
 	if(aray[0]!=pin) {
-		DEBUG_PRINT("LEDController::fromByteArray end, wrong pin!");DEBUG_PRINT(", thispin ");DEBUG_PRINT(aray[0]);DEBUG_PRINT(", pin ");DEBUG_PRINT(pin);DEBUG_PRINTLN();
+		DEBUG_PRINT("ESP8266Controller::fromByteArray end, wrong pin!");DEBUG_PRINT(", thispin ");DEBUG_PRINT(aray[0]);DEBUG_PRINT(", pin ");DEBUG_PRINT(pin);DEBUG_PRINTLN();
 		return false;
 	}
 
@@ -165,7 +165,7 @@ boolean ESP8266Controller::fromByteArray(byte aray[])  {
 	byte thispin = aray[index++];
 	int no_of_capabilities = aray[index++];
 
-	DEBUG_PRINT("LEDController::fromByteArray ");DEBUG_PRINT("pin ");DEBUG_PRINTLN(thispin);
+	DEBUG_PRINT("ESP8266Controller::fromByteArray ");DEBUG_PRINT("pin ");DEBUG_PRINTLN(thispin);
 
 	// skip copying controller name from Android client
 	// to change controller name Android client can create a local mapping (_name==new_name)
@@ -197,7 +197,7 @@ boolean ESP8266Controller::fromByteArray(byte aray[])  {
 
 	eepromUpdatePending = true;
 
-	DEBUG_PRINTLN("LEDController::fromByteArray end");
+	DEBUG_PRINTLN("ESP8266Controller::fromByteArray end");
 	return true;
 }
 
@@ -205,7 +205,7 @@ boolean ESP8266Controller::fromByteArray(byte aray[])  {
 //void ESP8266Controller::loadCapabilities(int start_address) {
 void ESP8266Controller::loadCapabilities() {
 
-	DEBUG_PRINT("LEDController::loadCapabilities at ");DEBUG_PRINTLN(eeprom_address);
+	DEBUG_PRINT("ESP8266Controller::loadCapabilities at ");DEBUG_PRINTLN(eeprom_address);
 	if (eeprom_address == 0)
 	return;
 
@@ -308,5 +308,5 @@ void ESP8266Controller::saveCapabilities() {
 	eepromUpdatePending = false;
 
 	//printArray(aray, sizeof(aray), false);
-	DEBUG_PRINTLN("LEDController::saveCapabilities end");
+	DEBUG_PRINTLN("ESP8266Controller::saveCapabilities end");
 }
