@@ -35,7 +35,7 @@ class ESP8266Controller {
 
 public:
 
-	ESP8266Controller(char* nam, uint8_t _pin, uint8_t capCount, int start_address) {
+	ESP8266Controller(const char* nam, uint8_t _pin, uint8_t capCount, int start_address) {
 		DEBUG_PRINTLN("ESP8266Controller::ESP8266Controller");
 
 		pin = _pin;

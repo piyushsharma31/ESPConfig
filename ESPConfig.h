@@ -59,7 +59,7 @@ void printEEPROM(int sz);
 
 class ESPConfig {
 public:
-	ESPConfig(char* nam/*controller name*/, char* loc/*location*/, char* fver/*firmware version*/, char* ssid/*router SSID*/, char* ssidpass/*router SSID key*/) {
+	ESPConfig(const char* nam/*controller name*/, const char* loc/*location*/, const char* fver/*firmware version*/, const char* ssid/*router SSID*/, const char* ssidpass/*router SSID key*/) {
 		DEBUG_PRINTLN("ESPConfig::ESPConfig");
 
 		strcpy(controllerName, nam);
